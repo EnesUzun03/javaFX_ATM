@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -791,7 +792,7 @@ public class AdminController {
                                     ? existingUser.getPassword()
                                     : passwordField.getText().trim())
                             .email(emailField.getText().trim())
-                            .role(ERole.valueOf(roleComboBox.getValue().name())) // Enum’dan string’e dönüşüm
+                            .role(ERole.valueOf(roleComboBox.getValue().name())) // Enum'dan string'e dönüşüm
                             .build();
                 }
                 return null;
@@ -1020,7 +1021,12 @@ public class AdminController {
     // BİTİRME PROJESİ
     @FXML
     private void toggleTheme(ActionEvent event) {
-        // Tema değiştirme işlemleri burada yapılacak
+        BorderPane root = (BorderPane) ((Node) event.getSource()).getScene().getRoot();
+        if (root.getStyleClass().contains("dark-mode")) {
+            root.getStyleClass().remove("dark-mode");
+        } else {
+            root.getStyleClass().add("dark-mode");
+        }
     }
 
     @FXML
