@@ -1,5 +1,5 @@
 // Gerekli izinleri verdiğimiz yer
-module com.hamitmizrak.ibb_ecodation_javafx {
+module com.enesuzun.javaFX_ATM {
 
     // JavaFX'in temel bileşenlerini kullanmak için gerekli modüller
     // JavaFX kontrol bileşenlerini (Button, Label, TextField vb.) kullanabilmek için gereklidir.
@@ -48,38 +48,38 @@ module com.hamitmizrak.ibb_ecodation_javafx {
     // Paket Erişimlerine İzin vermek
     // `opens` ifadesi, bir paketin runtime'da (çalışma zamanında) refleksiyon (reflection) kullanılarak erişilebilir olmasını sağlar.
     // Ana paket (Root package) açılıyor, böylece FXML dosyalarından erişilebilir.
-    opens com.hamitmizrak.ibb_ecodation_javafx to javafx.fxml;
+    opens com.enesuzun.javaFX_ATM to javafx.fxml;
 
     // DTO (Data Transfer Object) paketinin içeriği, JavaFX bileşenleri ve Lombok tarafından erişilebilir olmalıdır.
-    opens com.hamitmizrak.ibb_ecodation_javafx.dto to javafx.base, lombok;
+    opens com.enesuzun.javaFX_ATM.dto to javafx.base, lombok;
 
     // Controller sınıfları FXML tarafından kullanılacağı için açılması gerekiyor.
-    opens com.hamitmizrak.ibb_ecodation_javafx.controller to javafx.fxml;
+    opens com.enesuzun.javaFX_ATM.controller to javafx.fxml;
 
     // DAO (Data Access Object) sınıfları, SQL bağlantısı kullandığı için açılıyor.
-    opens com.hamitmizrak.ibb_ecodation_javafx.dao to java.sql;
+    opens com.enesuzun.javaFX_ATM.dao to java.sql;
 
     // Veritabanı bağlantısı sağlayan sınıfların da SQL modülüne açık olması gerekiyor.
-    opens com.hamitmizrak.ibb_ecodation_javafx.database to java.sql;
+    opens com.enesuzun.javaFX_ATM.database to java.sql;
 
     // #####################################################################
     // Paket dışa aktarmak
     // `exports` ifadesi, paketin diğer modüller tarafından erişilebilir olmasını sağlar.
 
     // DAO sınıflarını dışarıya açıyoruz. Böylece başka modüller veritabanı işlemlerini çağırabilir.
-    exports com.hamitmizrak.ibb_ecodation_javafx.dao;
+    exports com.enesuzun.javaFX_ATM.dao;
 
     // // Veritabanı bağlantı paketini dış dünyaya açıyoruz. Diğer modüller DB bağlantısını kullanabilir.
-    exports com.hamitmizrak.ibb_ecodation_javafx.database;
+    exports com.enesuzun.javaFX_ATM.database;
 
     // Ana paketi dış dünyaya açıyoruz. Diğer modüller bu paketin içeriğini kullanabilir.
-    exports com.hamitmizrak.ibb_ecodation_javafx;
-    opens com.hamitmizrak.ibb_ecodation_javafx.utils to javafx.base, lombok;
+    exports com.enesuzun.javaFX_ATM;
+    opens com.enesuzun.javaFX_ATM.utils to javafx.base, lombok;
 }
 
 //Default
 /*
-module com.hamitmizrak.ibb_ecodation_javafx {
+module com.enesuzun.javaFX_ATM {
         requires javafx.controls;
         requires javafx.fxml;
         //requires javafx.web;
@@ -94,8 +94,8 @@ module com.hamitmizrak.ibb_ecodation_javafx {
         requires java.desktop;
         //requires eu.hansolo.tilesfx;
 
-        opens com.hamitmizrak.ibb_ecodation_javafx to javafx.fxml;
-        exports com.hamitmizrak.ibb_ecodation_javafx;
+        opens com.enesuzun.javaFX_ATM to javafx.fxml;
+        exports com.enesuzun.javaFX_ATM;
         }
 */
 

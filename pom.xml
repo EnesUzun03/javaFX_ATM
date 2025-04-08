@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hamitmizrak</groupId>
-    <artifactId>ibb_ecodation_javafx</artifactId>
+    <groupId>com.enesuzun</groupId>
+    <artifactId>javaFX_ATM</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ibb_ecodation_javafx</name>
+    <name>javaFX_ATM</name>
 
     <url/>
     <licenses>
@@ -232,7 +232,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.hamitmizrak.ibb_ecodation_javafx/com.hamitmizrak.ibb_ecodation_javafx.HelloApplication
+                                com.enesuzun.javaFX_ATM/com.enesuzun.javaFX_ATM.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

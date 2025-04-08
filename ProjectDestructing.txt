@@ -1,10 +1,10 @@
 src/
-├── com.hamitmizrak._javafx.dao/
+├── com.enesuzun._javafx.dao/
 │   ├── UserDAO.java
 │   ├── DBConnection.java
-├── com.hamitmizrak._javafx.dto/
+├── com.enesuzun._javafx.dto/
 │   ├── UserDTO.java
-├── com.hamitmizrak._javafx.controller/
+├── com.enesuzun._javafx.controller/
 │   ├── LoginController.java
 │   ├── RegisterController.java
 ├── view/

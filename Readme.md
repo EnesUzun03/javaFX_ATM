@@ -1,6 +1,6 @@
 # JavaFX Desktop
-[Java FX GitHub Address](https://github.com/hamitmizrak/ibb_ecodation_javafx)
-[Java Core](https://github.com/hamitmizrak/ibb_ecodation_javacore.git )
+[Java FX GitHub Address](https://github.com/enesuzun/javaFX_ATM)
+[Java Core](https://github.com/enesuzun/ibb_ecodation_javacore.git )
 
 ## Git
 ```sh 
@@ -13,7 +13,7 @@ git push -u origin master
 
 ## Git Clone 
 ```sh 
-git clone https://github.com/hamitmizrak/ibb_ecodation_javafx
+git clone https://github.com/enesuzun/javaFX_ATM
 ```
 
 ## JDK Dikkat
