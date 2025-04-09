@@ -255,6 +255,23 @@ public class AdminController {
         deleteButton.setText(bundle.getString("delete"));
         printButton.setText(bundle.getString("print"));
         
+        // Update user table column headers
+        idColumn.setText(bundle.getString("id"));
+        usernameColumn.setText(bundle.getString("username"));
+        emailColumn.setText(bundle.getString("email"));
+        passwordColumn.setText(bundle.getString("password"));
+        roleColumn.setText(bundle.getString("role"));
+        
+        // Update KDV table column headers
+        idColumnKdv.setText(bundle.getString("kdv_id"));
+        amountColumn.setText(bundle.getString("kdv_amount"));
+        kdvRateColumn.setText(bundle.getString("kdv_rate"));
+        kdvAmountColumn.setText(bundle.getString("kdv_amount_total"));
+        totalAmountColumn.setText(bundle.getString("kdv_total"));
+        receiptColumn.setText(bundle.getString("kdv_receipt"));
+        dateColumn.setText(bundle.getString("kdv_date"));
+        descColumn.setText(bundle.getString("kdv_description"));
+        
         // Update KDV section
         kdvCalculationLabel.setText(bundle.getString("kdv_calculation"));
         searchKdvField.setPromptText(bundle.getString("search_receipt"));
