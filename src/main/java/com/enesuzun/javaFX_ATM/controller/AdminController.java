@@ -52,11 +52,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.ResourceBundle;
+import java.util.Locale;
 
 public class AdminController {
 
     private UserDAO userDAO;
     private KdvDAO kdvDAO;
+    private ResourceBundle bundle;
+    private boolean isEnglish = false;
 
     public AdminController() {
         userDAO = new UserDAO();
@@ -99,9 +103,55 @@ public class AdminController {
     @FXML
     private Label clockLabel;
 
+    // Language related FXML variables
+    @FXML private Label adminPanelLabel;
+    @FXML private Button darkModeButton;
+    @FXML private Button languageButton;
+    @FXML private Button notificationsButton;
+    @FXML private Button backupButton;
+    @FXML private Button restoreButton;
+    @FXML private Button notebookButton;
+    @FXML private Button profileButton;
+    @FXML private Button logoutButton;
+    
+    @FXML private Menu fileMenu;
+    @FXML private Menu userMenu;
+    @FXML private MenuItem addUserMenuItem;
+    @FXML private MenuItem updateUserMenuItem;
+    @FXML private MenuItem deleteUserMenuItem;
+    @FXML private Menu kdvOperationsMenu;
+    @FXML private MenuItem addKdvMenuItem;
+    @FXML private MenuItem updateKdvMenuItem;
+    @FXML private MenuItem deleteKdvMenuItem;
+    @FXML private Menu otherOperationsMenu;
+    @FXML private MenuItem calculatorMenuItem;
+    @FXML private Menu helpMenu;
+    @FXML private MenuItem aboutMenuItem;
+    
+    @FXML private Label userManagementLabel;
+    @FXML private Button addButton;
+    @FXML private Button updateButton;
+    @FXML private Button deleteButton;
+    @FXML private Button printButton;
+    
+    @FXML private Label kdvCalculationLabel;
+    @FXML private Button exportTxtButton;
+    @FXML private Button exportPdfButton;
+    @FXML private Button exportExcelButton;
+    @FXML private Button printKdvButton;
+    @FXML private Button sendMailButton;
+    @FXML private Button addKdvButton;
+    @FXML private Button updateKdvButton;
+    @FXML private Button deleteKdvButton;
+    
+    @FXML private Label copyrightLabel;
 
     @FXML
     public void initialize() {
+        // Load initial language
+        bundle = ResourceBundle.getBundle("com/enesuzun/javaFX_ATM/Language/tr");
+        updateUI();
+
         // Zaman
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), e -> {
@@ -156,6 +206,68 @@ public class AdminController {
         searchKdvField.textProperty().addListener((obs, oldVal, newVal) -> applyKdvFilter());
 
         refreshKdvTable();
+    }
+
+    @FXML
+    private void languageTheme(ActionEvent event) {
+        isEnglish = !isEnglish;
+        if (isEnglish) {
+            bundle = ResourceBundle.getBundle("com/enesuzun/javaFX_ATM/Language/en");
+        } else {
+            bundle = ResourceBundle.getBundle("com/enesuzun/javaFX_ATM/Language/tr");
+        }
+        updateUI();
+    }
+
+    private void updateUI() {
+        // Update all UI elements with new language
+        adminPanelLabel.setText(bundle.getString("admin_panel"));
+        darkModeButton.setText(bundle.getString("dark_mode"));
+        languageButton.setText(bundle.getString("language"));
+        notificationsButton.setText(bundle.getString("notifications"));
+        backupButton.setText(bundle.getString("backup"));
+        restoreButton.setText(bundle.getString("restore"));
+        notebookButton.setText(bundle.getString("notebook"));
+        profileButton.setText(bundle.getString("profile"));
+        logoutButton.setText(bundle.getString("logout"));
+        
+        // Update menu items
+        fileMenu.setText(bundle.getString("file"));
+        userMenu.setText(bundle.getString("user"));
+        addUserMenuItem.setText(bundle.getString("add_user"));
+        updateUserMenuItem.setText(bundle.getString("update_user"));
+        deleteUserMenuItem.setText(bundle.getString("delete_user"));
+        kdvOperationsMenu.setText(bundle.getString("kdv_operations"));
+        addKdvMenuItem.setText(bundle.getString("add_kdv"));
+        updateKdvMenuItem.setText(bundle.getString("update_kdv"));
+        deleteKdvMenuItem.setText(bundle.getString("delete_kdv"));
+        otherOperationsMenu.setText(bundle.getString("other_operations"));
+        calculatorMenuItem.setText(bundle.getString("calculator"));
+        helpMenu.setText(bundle.getString("help"));
+        aboutMenuItem.setText(bundle.getString("about"));
+        
+        // Update user management section
+        userManagementLabel.setText(bundle.getString("user_management"));
+        searchField.setPromptText(bundle.getString("search_user"));
+        filterRoleComboBox.setPromptText(bundle.getString("filter_role"));
+        addButton.setText(bundle.getString("add"));
+        updateButton.setText(bundle.getString("update"));
+        deleteButton.setText(bundle.getString("delete"));
+        printButton.setText(bundle.getString("print"));
+        
+        // Update KDV section
+        kdvCalculationLabel.setText(bundle.getString("kdv_calculation"));
+        searchKdvField.setPromptText(bundle.getString("search_receipt"));
+        exportTxtButton.setText(bundle.getString("export_txt"));
+        exportPdfButton.setText(bundle.getString("export_pdf"));
+        exportExcelButton.setText(bundle.getString("export_excel"));
+        sendMailButton.setText(bundle.getString("send_mail"));
+        addKdvButton.setText(bundle.getString("add_kdv"));
+        updateKdvButton.setText(bundle.getString("update_kdv"));
+        deleteKdvButton.setText(bundle.getString("delete_kdv"));
+        
+        // Update footer
+        copyrightLabel.setText(bundle.getString("copyright"));
     }
 
     // KULLANICI
@@ -1027,11 +1139,6 @@ public class AdminController {
         } else {
             root.getStyleClass().add("dark-mode");
         }
-    }
-
-    @FXML
-    private void languageTheme(ActionEvent event) {
-        // Uygulamanın dili değiştirilecek (TR/EN vs.)
     }
 
     @FXML
